@@ -1,0 +1,163 @@
+body{
+    font-family:'powerpuffgirls', courier, monospace;
+}
+
+body::before{
+    content: '';
+    background-image: url("../img/the-power-puff-girls-hearts.gif");
+    background-repeat: no-repeat; /*nao repetir a imagem*/
+    background-size: cover; /*cobre a tela*/
+    background-attachment: fixed;
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+}
+
+main{
+    min-height: 100vh;
+    display: flex; /*posicionar elementos*/
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cabecalho { 
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.cabecalho .titulo { /*titulo dentro do cabecalho*/
+    color: black;
+    text-transform: uppercase; /* transforma o texto para maisculo*/
+    font-size: 50px;
+    line-height: 104px;
+    -webkit-text-stroke: 3px rgb(226, 43, 156);
+    padding-bottom: 10px;
+}
+
+.selecao-personagem{
+    display: flex;
+    align-items: center; /*alinhar verticalmente*/
+    justify-content: center; /*alinhar horizontalmente*/
+}
+
+.selecao-personagem .imagem-principal{
+    text-align: center;
+    width: 30%;
+    height: 70vh;
+    position: relative;
+}
+
+.selecao-personagem .imagem-principal img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.selecao-personagem .imagem-principal .nome::before {
+   content: '';
+   height: 30px;
+   width: 100%; 
+   position: absolute;
+   bottom: -15px;
+   left: 0;
+}
+
+.selecao-personagem .imagem-principal .nome h2 {
+    color: blueviolet;
+    font-family: 'power2', sans-serif;
+    position:absolute;
+    bottom: 0px;
+    width: 100%;
+    font-size: 50px;
+}
+
+.selecao-personagem .imagem-principal.player-1 .nome::before{
+    background-color: rgb(239, 9, 247);
+    
+}
+
+.selecao-personagem .imagem-principal.player-2 .nome::before{
+    background-color: rgb(239, 9, 247);
+    
+}
+
+.selecao-personagem .lista-de-personagem{
+    display: flex;
+    flex-wrap: wrap; /*enquanto houver tela preencher, qdo acabar vai para baixo*/
+    max-width: 600px;
+    justify-content: center;
+    gap: 12px;
+}
+
+.selecao-personagem .lista-de-personagem .personagem{
+    border: 2px solid red;
+    background-color: pink;
+    width: 30%;
+    height: 160px;
+    cursor: pointer;
+    z-index: 2;
+    border-radius: 5px;
+    position:relative;
+    transition: 0.15s ease-in-out;
+}
+
+.selecao-personagem .lista-de-personagem .personagem img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.selecao-personagem .lista-de-personagem .personagem.selecionado{
+    border: 2px solid blue;
+    animation: c-glowing-blue .3s ease-in-out infinite;
+    animation-direction: alternate;
+}
+
+.selecao-personagem .lista-de-personagem .personagem.player-2-selecionado{
+    border: 2px solid red;
+    animation: c-glowing-red .3s ease-in-out infinite;
+    animation-direction: alternate;
+}
+
+.selecao-personagem .lista-de-personagem .personagem:hover{
+    animation: c-glowing-blue .3s ease-in-out infinite;
+    animation-direction: alternate;
+    transform:scale(1.07);
+    z-index: 2;
+}
+
+.selecao-personagem .lista-de-personagem .personagem.jogador-2-selecionado:hover{
+    animation: c-glowing-red .3s ease-in-out infinite;
+    animation-direction: alternate;
+}
+
+.selecao-personagem .lista-de-personagem .personagem .Tag{
+    display: none;
+    font-family: 'Times New Roman', Times, serif;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: white;
+    transition: opacity .3 ease-in-out;
+    animation: text-glowing-blue .3s ease-in-out infinite;
+    animation-direction: alternate; 
+}
+
+.selecao-personagem .lista-de-personagem .personagem.selecionado .Tag{
+    display: block;
+    animation: text-glowing-blue .3s ease-in-out infinite;
+    animation-direction: alternate;
+}
+
+.selecao-personagem .lista-de-personagem .personagem.player-2-selecionado .Tag{
+    display: block;
+    animation: text-glowing-red .3s ease-in-out infinite;
+    animation-direction: alternate;
+}
+
+
+
+
